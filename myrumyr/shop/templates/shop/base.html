@@ -1,0 +1,159 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="{%static  'css/style.css' %}" />
+  </head>
+  <body>
+    <section id="header">
+      <img src="images/logo.png" class="logo" width="50" height="50" />
+
+      <div>
+        <ul id="navbar">
+          <li class="nav-elements">
+            <div class="search-box" id="search-box-id">
+              <div class="search-row">
+                <input type="text" id="search-bar" placeholder="Search" />
+                <button id="search-button">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+              </div>
+              <div class="dropdown-box" id="drpb">
+                <div class="dropdown-result">Result1</div>
+                <div class="dropdown-result">Result2</div>
+                <div class="dropdown-result">Result3</div>
+                <div class="dropdown-result">Result2</div>
+                <div class="dropdown-result">Result2</div>
+                <div class="dropdown-result">Result4</div>
+                <div class="dropdown-result">Result2</div>
+                <div class="dropdown-result">Result2</div>
+                <div class="dropdown-result">Result4</div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-elements">
+            <a href="index.html">Main</a>
+          </li>
+          <li class="nav-elements nav-catalog">
+            <a>Categories <i class="fa-solid fa-chevron-down"></i> </a>
+            <ul id="dropdown-cat">
+              <li>variant</li>
+              <li>Variant</li>
+              <li>Variant</li>
+              <li>Variant</li>
+              <li>Variant</li>
+              <li>Variant</li>
+              <li>Variant</li>
+              <li>Variant</li>
+              <li>Variant</li>
+              <li>Variant</li>
+              <li>Variant</li>
+              <li>Variant</li>
+              <li>Variant</li>
+              <li>Variant</li>
+            </ul>
+          </li>
+          <li class="nav-elements">
+            <a href="single-product.html">Goods</a>
+          </li>
+          <li class="nav-elements">
+            <a href="contact.html">Contacts </a>
+          </li>
+          <i id="close" class="fa-solid fa-xmark"></i>
+          <li class="nav-elements">
+            <a href="cart.html"
+              ><i id="shop-cart" class="fa-solid fa-cart-shopping"></i
+            ></a>
+          </li>
+        </ul>
+      </div>
+      <div class="mobile">
+        <div class="mobile-logo">
+          <img
+            src="images/logo.png"
+            class="mobile-logo"
+            width="50"
+            height="50"
+          />
+        </div>
+        <div class="mobile-right-icons">
+          <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+          <i id="bar" class="fa-solid fa-bars menu"></i>
+        </div>
+        <div class="search-box">
+          <input type="text" id="search-bar" placeholder="Search" />
+          <button id="search-button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+          <div class="dropdown-box" id="drpb">
+            <div class="dropdown-result">Result1</div>
+            <div class="dropdown-result">Result2</div>
+            <div class="dropdown-result">Result3</div>
+            <div class="dropdown-result">Result2</div>
+            <div class="dropdown-result">Result2</div>
+            <div class="dropdown-result">Result4</div>
+            <div class="dropdown-result">Result2</div>
+            <div class="dropdown-result">Result2</div>
+            <div class="dropdown-result">Result4</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {% block content%}
+    {%endblock%}
+
+    <footer class="section-p2">
+      <div class="fut-col-1">
+        <h3>Shop Myru-Myr</h3>
+        <img src="images/logo.png" width="70px" />
+        <div class="fut-vib-tg">
+          <div class="vb">
+            <a href="#">
+              <i class="fa-brands fa-viber"></i>
+            </a>
+          </div>
+          <div class="tg">
+            <a href="#">
+              <i class="fa-brands fa-telegram"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="fut-col-2">
+        <h4>Navigation</h4>
+        <h5>Contact</h5>
+        <h5>Catalog</h5>
+        <h5>Goods</h5>
+      </div>
+
+      <div class="fut-col-3">
+        <h4>Contacts</h4>
+        <h5>+38 (067) 792-66-74 (Viber Telegram)</h5>
+        <h5>yaroslawsh04@gmail.com</h5>
+      </div>
+
+      <div class="fut-col-4">
+        <h4>Work Time</h4>
+        <h5>Mon-Fri 8:00-18:00</h5>
+        <h5>Sat-Sun 8:00-15:00</h5>
+      </div>
+
+      <div class="copyright">
+        <p>Copyright © 2024 Yaroslav Shmyhelskyi All rights reserved.</p>
+      </div>
+    </footer>
+    <script src="{%static 'js/script.js'%}" charset="utf-8"></script>
+  </body>
+</html>
