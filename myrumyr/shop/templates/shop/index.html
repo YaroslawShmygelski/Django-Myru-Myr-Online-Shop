@@ -33,19 +33,26 @@
     <h2>Best sellers</h2>
     <p>best goods ever</p>
     <div class="product-container">
+           {%for p in products%}
         <div class="product-icon">
             <div class="image-field">
+                {%if p.image%}
+                <img src="{{p.image.url}}" alt=""/>
+                {%else%}
                 <img src="{%static 'images/traktor2.jpg'%}" alt=""/>
+                {%endif%}
             </div>
             <div class="product-description">
-                <span>broo</span>
-                <h5>Product name</h5>
-                <h4 class="price">75 uah</h4>
+                <span>{{p.description|linebreaks|truncatewords:3}}</span>
+                <h5>{{p.name}}</h5>
+                <h4 class="price">{{p.price}}</h4>
             </div>
             <i class="fa-solid fa-cart-plus product-cart"></i>
         </div>
+           {%endfor%}
     </div>
 </section>
+
 
 <section id="banner" class="section-p2">
     <h2>Huge ammount of goods</h2>

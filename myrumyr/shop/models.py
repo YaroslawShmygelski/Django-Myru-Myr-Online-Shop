@@ -12,7 +12,7 @@ class Product(models.Model):
     created = models.DateField(auto_now_add=True)
     changed = models.DateField(auto_now=True)
     posted = models.BooleanField(default=True)
-    image = models.ImageField(upload_to='products_photo/%Y/%m/%d', blank=True, )
+    image = models.ImageField(upload_to='products_photo/%Y/%m/%d', blank=True)
     category = models.ForeignKey('category', on_delete=models.CASCADE)
 
     class Meta:
