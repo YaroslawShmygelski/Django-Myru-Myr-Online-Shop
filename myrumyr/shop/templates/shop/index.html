@@ -1,4 +1,5 @@
 {%extends "shop/base.html"%}
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,9 +9,51 @@
 <body>
 
 {%block content%}
-<section class="section-p1">
-123321
+
+<section id="hero">
+    <h2>Myru-Myr shop</h2>
+    <h3>Details for every tracktor</h3>
+    <div id="contactInfo">
+        <h4>
+            <a class="btn btn-simple btn-round" href="tel:+380677926674">
+                📞 +38 (067) 792-66-74
+            </a>
+            <a target="_blank"
+               title="Viber"
+               class="header-phone_social"
+               href="viber://chat?number=+380677926674">
+                <i class="fab fa-viber"></i>
+            </a>
+        </h4>
+    </div>
 </section>
-{%endblock%}
+
+
+<section id="bestsellers" class="section-p1">
+    <h2>Best sellers</h2>
+    <p>best goods ever</p>
+    <div class="product-container">
+        <div class="product-icon">
+            <div class="image-field">
+                <img src="{%static 'images/traktor2.jpg'%}" alt=""/>
+            </div>
+            <div class="product-description">
+                <span>broo</span>
+                <h5>Product name</h5>
+                <h4 class="price">75 uah</h4>
+            </div>
+            <i class="fa-solid fa-cart-plus product-cart"></i>
+        </div>
+    </div>
+</section>
+
+<section id="banner" class="section-p2">
+    <h2>Huge ammount of goods</h2>
+    <h3>New and used</h3>
+    <button>BUY</button>
+</section>
+
+<section class="section-p1"></section>
+    {%endblock%}
 </body>
 </html>
