@@ -8,6 +8,17 @@
 <body>
 
 {%block content%}
+    <section class="section-p3">
+      <div class="path-to">
+        <ul id="path">
+          <li><a href="{%url 'shop:main'%}">Main</a> /</li>
+          <li><a href="{%url 'shop:catalog'%}">Catalog </a>/</li>
+          <li>{{product.category}}/</li>
+          <li class="active">{{product.name}} </li>
+        </ul>
+      </div>
+    </section>
+
     <section id="single-product" class="section-p1">
       <div class="single-product-images">
         {%if product.image%}

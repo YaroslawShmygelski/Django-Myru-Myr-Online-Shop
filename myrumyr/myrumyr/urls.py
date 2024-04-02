@@ -22,7 +22,8 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('shop.urls', namespace='shop'))
+    path('', include('shop.urls', namespace='shop')),
+    path("__debug__/", include("debug_toolbar.urls"))
 ]
 
 if settings.DEBUG:

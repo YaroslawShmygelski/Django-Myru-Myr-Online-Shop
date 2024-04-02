@@ -3,3 +3,4 @@ psycopg2-binary==2.9.9
 Pillow==10.2.0
 ipython==8.22.2
 django_extensions==3.2.3
+django_debug_toolbar==4.3.0

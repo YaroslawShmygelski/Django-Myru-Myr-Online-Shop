@@ -17,7 +17,7 @@
   </head>
   <body>
     <section id="header">
-      <img src="{%static 'images/logo.png'%}" class="logo" width="50" height="50" />
+      <a href="{%url 'shop:main'%}"> <img src="{%static 'images/logo.png'%}" class="logo" width="50" height="50" /></a>
 
       <div>
         <ul id="navbar">
@@ -43,10 +43,10 @@
             </div>
           </li>
           <li class="nav-elements">
-            <a href="index.html">Main</a>
+            <a href="{%url 'shop:main'%}">Main</a>
           </li>
           <li class="nav-elements nav-catalog">
-            <a>Categories <i class="fa-solid fa-chevron-down"></i> </a>
+            <a href="{% url 'shop:catalog'%}">Categories <i class="fa-solid fa-chevron-down"></i> </a>
             <ul id="dropdown-cat">
               <li>variant</li>
               <li>Variant</li>
@@ -134,7 +134,7 @@
       <div class="fut-col-2">
         <h4>Navigation</h4>
         <h5>Contact</h5>
-        <h5>Catalog</h5>
+        <h5><a href="{% url 'shop:catalog'%}">Catalog</a></h5>
         <h5>Goods</h5>
       </div>
 
