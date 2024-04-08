@@ -513,6 +513,10 @@ footer .fut-vib-tg {
 
 }
 
+footer .fut-col-2 a{
+    text-decoration: none;
+}
+
 footer .fut-vib-tg a {
     margin-right: 20px;
 
@@ -546,6 +550,12 @@ footer h3 {
     font-weight: 800;
     margin-bottom: 10px;
 }
+
+footer a{
+    text-decoration: none;
+}
+
+
 
 footer .fut-col-2 h5:hover {
     color: #059951;

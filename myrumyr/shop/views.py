@@ -23,3 +23,8 @@ def show_catalog(request):
 
     return render(request, 'shop/catalog.html', {'products': products})
 
+
+
+def cart_view(request):
+
+    return render(request, 'shop/cart.html')

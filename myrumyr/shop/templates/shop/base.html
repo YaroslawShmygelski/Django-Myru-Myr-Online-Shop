@@ -72,7 +72,7 @@
           </li>
           <i id="close" class="fa-solid fa-xmark"></i>
           <li class="nav-elements">
-            <a href="cart.html"
+            <a href="{% url 'shop:cart'%}"
               ><i id="shop-cart" class="fa-solid fa-cart-shopping"></i
             ></a>
           </li>
@@ -88,7 +88,7 @@
           />
         </div>
         <div class="mobile-right-icons">
-          <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+          <a href="{% url 'shop:cart'%}"><i class="fa-solid fa-cart-shopping"></i></a>
           <i id="bar" class="fa-solid fa-bars menu"></i>
         </div>
         <div class="search-box">
@@ -132,10 +132,10 @@
         </div>
       </div>
       <div class="fut-col-2">
-        <h4>Navigation</h4>
-        <h5>Contact</h5>
-        <h5><a href="{% url 'shop:catalog'%}">Catalog</a></h5>
-        <h5>Goods</h5>
+        <a href="{% url 'shop:catalog'%}"><h4>Navigation</h4></a>
+        <a href="{% url 'shop:catalog'%}"><h5>Contact</h5></a>
+        <a href="{% url 'shop:catalog'%}"><h5>Catalog</h5></a>
+        <a href="{% url 'shop:catalog'%}"><h5>Goods</h5></a>
       </div>
 
       <div class="fut-col-3">
