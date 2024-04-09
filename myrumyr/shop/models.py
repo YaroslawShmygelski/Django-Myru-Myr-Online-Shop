@@ -23,6 +23,8 @@ class Product(models.Model):
             models.Index(fields=['name']),
             models.Index(fields=['price']),
         ]
+        verbose_name= 'Product'
+        verbose_name_plural = 'Products'
 
     def __str__(self):
         return self.name
@@ -40,6 +42,7 @@ class Category(models.Model):
             models.Index(fields=['id'])
         ]
         verbose_name = 'category'
+        verbose_name_plural = 'categories'
 
     def __str__(self):
         return self.name

@@ -48,27 +48,16 @@
           <li class="nav-elements nav-catalog">
             <a href="{% url 'shop:catalog'%}">Categories <i class="fa-solid fa-chevron-down"></i> </a>
             <ul id="dropdown-cat">
-              <li>variant</li>
-              <li>Variant</li>
-              <li>Variant</li>
-              <li>Variant</li>
-              <li>Variant</li>
-              <li>Variant</li>
-              <li>Variant</li>
-              <li>Variant</li>
-              <li>Variant</li>
-              <li>Variant</li>
-              <li>Variant</li>
-              <li>Variant</li>
-              <li>Variant</li>
-              <li>Variant</li>
+              {%for cat in categories%}
+              <li>{{cat}}</li>
+              {%endfor%}
             </ul>
           </li>
           <li class="nav-elements">
             <a href="single-product.html">Goods</a>
           </li>
           <li class="nav-elements">
-            <a href="contact.html">Contacts </a>
+            <a href="{%url 'shop:contact'%}">Contacts </a>
           </li>
           <i id="close" class="fa-solid fa-xmark"></i>
           <li class="nav-elements">
@@ -132,8 +121,8 @@
         </div>
       </div>
       <div class="fut-col-2">
-        <a href="{% url 'shop:catalog'%}"><h4>Navigation</h4></a>
-        <a href="{% url 'shop:catalog'%}"><h5>Contact</h5></a>
+        ><h4>Navigation</h4>
+        <a href="{% url 'shop:contact'%}"><h5>Contact</h5></a>
         <a href="{% url 'shop:catalog'%}"><h5>Catalog</h5></a>
         <a href="{% url 'shop:catalog'%}"><h5>Goods</h5></a>
       </div>
