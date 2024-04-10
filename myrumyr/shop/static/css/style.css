@@ -178,7 +178,21 @@ body {
     list-style-type: none;
     background-color: #fff;
     transition: 0.35s ease-in-out;
+    text-decoration: none;
 }
+#navbar #dropdown-cat a:hover{
+    text-decoration: none;
+}
+
+
+#dropdown-cat a{
+    text-decoration: none;
+}
+
+#dropdown-cat li a{
+    text-decoration: none;
+}
+
 
 #dropdown-cat li:hover {
     background-color: #cac7c7;

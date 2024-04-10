@@ -10,73 +10,73 @@
 
 {%block content%}
 <div class="catalog-wrap section-p1">
-      <div class="path-to">
+    <div class="path-to">
         <ul id="path">
-          <li><a href="{%url 'shop:main'%}">Main</a> /</li>
-          <li class="active">Catalog</li>
+            <li><a href="{%url 'shop:main'%}">Main</a> /</li>
+            <li class="active">Catalog</li>
         </ul>
-      </div>
+    </div>
 
 
-      <section id="catalog-products">
+    <section id="catalog-products">
         <div class="product-container">
-          <div class="upper-catalog-card">
-            <div class="catalog-info">Products:123</div>
-            <div class="filters-mobile">
-              Filters<i class="fa-solid fa-filter"></i>
-              <div class="filters-dropdown">
-                <div class="mob-filter">sort1</div>
-                <div class="mob-filter">sort1</div>
-                <div class="mob-filter">sort1</div>
-                <div class="mob-filter">sort1</div>
-              </div>
+            <div class="upper-catalog-card">
+                <div class="catalog-info">Products:123</div>
+                <div class="filters-mobile">
+                    Filters<i class="fa-solid fa-filter"></i>
+                    <div class="filters-dropdown">
+                        <div class="mob-filter">sort1</div>
+                        <div class="mob-filter">sort1</div>
+                        <div class="mob-filter">sort1</div>
+                        <div class="mob-filter">sort1</div>
+                    </div>
+                </div>
+
+                <div class="catalog-sort">
+                    Sort <i class="fa-solid fa-arrow-down-wide-short"></i>
+                    <div class="dropdown-sort">
+                        <div class="sort">sort1</div>
+                        <div class="sort">sort2</div>
+                        <div class="sort">sort3</div>
+                    </div>
+                </div>
             </div>
 
-            <div class="catalog-sort">
-              Sort <i class="fa-solid fa-arrow-down-wide-short"></i>
-              <div class="dropdown-sort">
-                <div class="sort">sort1</div>
-                <div class="sort">sort2</div>
-                <div class="sort">sort3</div>
-              </div>
+            {%for p in products%}
+            <div class="product-icon">
+                <a href="{{p.get_absolute_url}}">
+                    <div class="image-field">
+                        {% if p.image%}
+                        <img src="{{p.image.url}}" alt=""/>
+                        {%else%}
+                        <img src="{%static 'images/no-image.png'%}" alt=""/>
+                        {%endif%}
+                    </div>
+                    <div class="product-description">
+                        <span>{{p.description|linebreaks|truncatewords:3}}</span>
+                        <h5>{{p.name}}</h5>
+                        <h4 class="price">{{p.price}}</h4>
+                    </div>
+                    <i class="fa-solid fa-cart-plus product-cart"></i>
+                </a>
             </div>
-          </div>
-
-              {%for p in products%}
-          <div class="product-icon">
-              <a href="{{p.get_absolute_url}}">
-            <div class="image-field">
-                {% if p.image%}
-              <img src="{{p.image.url}}" alt="" />
-                {%else%}
-                <img src="{%static 'images/no-image.png'%}" alt=""/>
-                {%endif%}
-            </div>
-            <div class="product-description">
-              <span>{{p.description|linebreaks|truncatewords:3}}</span>
-              <h5>{{p.name}}</h5>
-              <h4 class="price">{{p.price}}</h4>
-            </div>
-            <i class="fa-solid fa-cart-plus product-cart"></i>
-              </a>
-          </div>
             {%endfor%}
         </div>
 
         <div class="filters">
-          <h3>Filter</h3>
-          <h5>Filter</h5>
-          <h5>Filter</h5>
-          <h5>Filter1234324y234</h5>
-          <h5>Filter</h5>
-          <h5>Filter</h5>
-          <h5>Filter</h5>
-          <h5>Filter</h5>
-          <h6>Filter</h6>
+            <h3>Filter</h3>
+            <h5>Filter</h5>
+            <h5>Filter</h5>
+            <h5>Filter1234324y234</h5>
+            <h5>Filter</h5>
+            <h5>Filter</h5>
+            <h5>Filter</h5>
+            <h5>Filter</h5>
+            <h6>Filter</h6>
         </div>
         <div class="mob-info">products:125</div>
-      </section>
-    </div>
+    </section>
+</div>
 {%endblock%}
 
 

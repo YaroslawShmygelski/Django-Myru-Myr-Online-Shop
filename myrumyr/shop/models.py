@@ -23,7 +23,7 @@ class Product(models.Model):
             models.Index(fields=['name']),
             models.Index(fields=['price']),
         ]
-        verbose_name= 'Product'
+        verbose_name = 'Product'
         verbose_name_plural = 'Products'
 
     def __str__(self):
@@ -32,9 +32,10 @@ class Product(models.Model):
     def get_absolute_url(self):
         return reverse('shop:single-product', kwargs={'slug': self.slug})
 
+
 class Category(models.Model):
     name = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=200,unique=True, db_index=True)
+    slug = models.SlugField(max_length=200, unique=True, db_index=True)
 
     class Meta:
         ordering = ['name']
@@ -48,4 +49,4 @@ class Category(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('shop:product', kwargs={'slug': self.slug})
+        return reverse('shop:category', kwargs={'cat_slug': self.slug})
