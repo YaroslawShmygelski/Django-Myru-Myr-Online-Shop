@@ -1,5 +1,5 @@
 {%load static%}
-
+{%load shop_tags%}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -48,6 +48,7 @@
           <li class="nav-elements nav-catalog">
             <a href="{% url 'shop:catalog'%}">Categories <i class="fa-solid fa-chevron-down"></i> </a>
             <ul id="dropdown-cat">
+              {%get_categories as categories%}
               {%for cat in categories%}
               <li>{{cat}}</li>
               {%endfor%}

@@ -8,10 +8,10 @@ from .models import Product, Category
 
 def index_view(request):
     products = Product.objects.all()
-    categories = Category.objects.all()
+
 
     return render(request, 'shop/index.html', {'products': products,
-                                               'categories': categories})
+                                             })
 
 
 def show_single_product(request, slug):
@@ -22,6 +22,7 @@ def show_single_product(request, slug):
 
 def show_catalog(request):
     products = Product.objects.all()
+
 
     return render(request, 'shop/catalog.html', {'products': products})
 
