@@ -50,19 +50,19 @@
                 <ul id="dropdown-cat">
                     {%get_categories as categories%}
                     {%for cat in categories%}
-                    <li><a href="{{cat.get_absolute_url}}"><h5>{{cat}}</h5></a></li>
+                    <li><a href="{{cat.get_absolute_url}}"><h5>{{cat}} </h5></a></li>
                     {%endfor%}
                 </ul>
             </li>
             <li class="nav-elements">
-                <a href="single-product.html">Goods</a>
+                <a href="../shop/templates/shop/single-product.html">Goods</a>
             </li>
             <li class="nav-elements">
                 <a href="{%url 'shop:contact'%}">Contacts </a>
             </li>
             <i id="close" class="fa-solid fa-xmark"></i>
             <li class="nav-elements">
-                <a href="{% url 'shop:cart'%}"
+                <a href="#"
                 ><i id="shop-cart" class="fa-solid fa-cart-shopping"></i
                 ></a>
             </li>
@@ -78,7 +78,7 @@
             />
         </div>
         <div class="mobile-right-icons">
-            <a href="{% url 'shop:cart'%}"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="# "><i class="fa-solid fa-cart-shopping"></i></a>
             <i id="bar" class="fa-solid fa-bars menu"></i>
         </div>
         <div class="search-box">
