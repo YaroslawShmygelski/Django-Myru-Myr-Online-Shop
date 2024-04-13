@@ -1,6 +1,6 @@
 from django.conf import settings
 
-from myrumyr.shop.models import Product
+from shop.models import Product
 
 
 class Cart:

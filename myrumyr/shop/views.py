@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from .models import Product, Category
+from cart.forms import CartAddForm
 
 
 # Create your views here.
@@ -13,8 +14,9 @@ def index_view(request):
 
 def show_single_product(request, slug):
     product = get_object_or_404(Product, slug=slug)
+    cart_form=CartAddForm()
 
-    return render(request, 'shop/single-product.html', {'product': product})
+    return render(request, 'shop/single-product.html', {'product': product, 'cart_form': cart_form}ССк
 
 
 def get_category_products(request, cat_slug):
