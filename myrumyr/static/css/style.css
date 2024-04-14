@@ -617,6 +617,18 @@ footer .copyright {
     width: 50%;
 }
 
+#single-product .single-product-description {
+    width: 50%;
+}
+#single-product .single-product-description input{
+    padding: 20px 20px
+}
+
+
+
+
+
+
 #single-product .category {
     padding: 20px 0px 10px 0px;
 }
@@ -653,6 +665,30 @@ footer .copyright {
     color: #FFFFFF;
     background-color: #9e9102;
 }
+
+#single-product input {
+    text-align: center !important;
+    display: inline-block !important;
+    padding: 10px 15px !important;
+    box-sizing: border-box !important;
+    font-size: 15px;
+    font-weight: 600;
+    margin: 15px 0;
+    background-color: #717171;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    transition: 0.2s ease;
+    width: 17%;
+    min-width: 120px;
+}
+
+#single-product input:hover {
+    color: #FFFFFF;
+    background-color: #9e9102;
+}
+
 
 #single-product .single-product-images {
     width: 40%;

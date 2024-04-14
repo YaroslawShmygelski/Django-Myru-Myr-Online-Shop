@@ -41,16 +41,18 @@
     <div class="single-product-description">
         <h4 class="category">{{product.category}}</h4>
         <h2 class="price">{{product.price}}</h2>
-        <h3 class="details-head">{{product.code}}</h3>
-                <form action="{%url 'cart:add_to_cart' product.slug %}' method='post'"></form>
-        {{ cart_product_form }}
-        {% csrf_token %}
-        <input type="submit" value="Sub">
+        <h3 class="details-head">Code: {{product.code}}</h3>
+        <form action="{%url 'cart:add_to_cart' product.slug%}" method="post">
+            {{cart_form.as_p}}
+            {%csrf_token%}
+            <input type="submit" value="Add to Cart">
         </form>
         <p class="details-text">
             {{product.description}}
         </p>
+
     </div>
+
 </section>
 {%endblock%}
 

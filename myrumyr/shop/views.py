@@ -16,7 +16,7 @@ def show_single_product(request, slug):
     product = get_object_or_404(Product, slug=slug)
     cart_form=CartAddForm()
 
-    return render(request, 'shop/single-product.html', {'product': product, 'cart_form': cart_form}ССк
+    return render(request, 'shop/single-product.html', {'product': product, 'cart_form': cart_form})
 
 
 def get_category_products(request, cat_slug):
