@@ -62,9 +62,10 @@
             </li>
             <i id="close" class="fa-solid fa-xmark"></i>
             <li class="nav-elements">
-                <a href="#"
-                ><i id="shop-cart" class="fa-solid fa-cart-shopping"></i
-                ></a>
+                <a href="{%url 'cart:cart_view'%}">
+                    <i id="shop-cart" class="fa-solid fa-cart-shopping"></i>
+                    {{cart|length}}
+                </a>
             </li>
         </ul>
     </div>

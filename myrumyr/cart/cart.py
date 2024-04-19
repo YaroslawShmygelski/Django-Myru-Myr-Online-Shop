@@ -4,14 +4,6 @@ from django.conf import settings
 
 from shop.models import Product
 
-import json
-
-
-class DecimalEncoder(json.JSONEncoder):
-    def default(self, obj):
-        if isinstance(obj, Decimal):
-            return float(obj)
-        return json.JSONEncoder.default(self, obj)
 
 class Cart:
 
@@ -62,7 +54,7 @@ class Cart:
     def get_total_sum(self):
         res = 0
         for item in self.cart.values():
-            res += (item['quantity'] * item['price'])
+            res += Decimal((item['quantity'] * item['price']))
         return res
 
     def clear_cart(self):
