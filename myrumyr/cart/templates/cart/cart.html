@@ -35,13 +35,17 @@
         <tr>
             {% with product=item.product %}
             <td>{{product.name}}</td>
-            <td><img src="{{23}}"/></td>
+            {%if product.image%}
+            <td><img src="{{product.image.url}}"/></td>
+            {%else%}
+            <td><img src="{%static 'images/no-image.png'%}"/></td>
+            {%endif%}
             <td>{{product.price}}</td>
             <td>
                 <input type="number" value="{{item.quantity}}"/>
             </td>
             <td>{{item.total_price}}</td>
-            <td><i class="fa-solid fa-trash-can"></i></td>
+            <td><a href="{%url 'cart:remove_from_cart' product.slug%}"><i class="fa-solid fa-trash-can"></i></a></td>
             {%endwith%}
 
         </tr>

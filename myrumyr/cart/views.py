@@ -1,4 +1,3 @@
-
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 
@@ -27,13 +26,13 @@ def add_to_cart(request, product_slug):
     return redirect('cart:cart_view')
 
 
-def cart_remove(request, product_slug):
-    product=get_object_or_404(Product, slug=product_slug)
-    cart=Cart(request)
+def remove_from_cart(request, product_slug):
+    product = get_object_or_404(Product, slug=product_slug)
+    cart = Cart(request)
     cart.remove(product)
     return redirect('cart:cart_view')
 
 
 def cart_view(request):
     cart = Cart(request)
-    return render(request, 'cart/cart.html', {'cart':cart})
+    return render(request, 'cart/cart.html', {'cart': cart})
