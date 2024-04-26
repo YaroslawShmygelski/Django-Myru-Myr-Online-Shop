@@ -32,6 +32,8 @@ document.addEventListener("click", (event) => {
   }
 });
 
+
+
 var MainImg = document.getElementById("main-image");
 var SmallImg = document.getElementsByClassName("small-img");
 // Realization of changing of images in row
@@ -44,3 +46,44 @@ function toggleIcon() {
   var icon = $(".nav-catalog i");
   icon.toggleClass("fa-chevron-down fa-chevron-up");
 }
+
+// Open modal box
+document
+  .getElementById("open-modal-btn").addEventListener("click", function (event) {
+    document.getElementById("my-modal").classList.add("open");
+  });
+
+var innerLinks = document.querySelectorAll('.open-modal-btn');
+
+innerLinks.forEach(function(link) {
+  link.addEventListener('click', function(event) {
+    event.preventDefault(); // Предотвращаем действие по умолчанию для внутренней ссылки
+    event.stopPropagation(); // Предотвращаем всплытие события
+    window.location.href = this.parentElement.href; // Переходим по адресу родительской ссылки
+  });
+});
+
+
+// close modal
+document
+  .getElementById("close-my-modal-btn").addEventListener("click", function () {
+    document.getElementById("my-modal").classList.remove("open");
+  });
+
+// close modal window with esc
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    document.getElementById("my-modal").classList.remove("open");
+  }
+});
+
+// Close modal window with click outside of the box
+document
+  .querySelector("#my-modal .modal__box")
+  .addEventListener("click", (event) => {
+    event._isClickWithInModal = true;
+  });
+document.getElementById("my-modal").addEventListener("click", (event) => {
+  if (event._isClickWithInModal) return;
+  event.currentTarget.classList.remove("open");
+});
