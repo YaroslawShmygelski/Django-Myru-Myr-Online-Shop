@@ -363,6 +363,43 @@ div.search-box button {
     color: #222;
 }
 
+/* Стили для модального окна */
+.modal {
+  display: none; /* По умолчанию скрыто */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4); /* Темный фон */
+}
+
+/* Стили для содержимого модального окна */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* Центрируем по вертикали и горизонтали */
+  max-width: 500px;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* Стили для крестика закрытия модального окна */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
 
 /* Bestsallers section*/
 
@@ -983,6 +1020,22 @@ footer .copyright {
     z-index: 99;
 }
 
+
+/* Стили для крестика закрытия модального окна */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .atention-box {
     margin-left: 150px;
     width: 30%;
@@ -1267,65 +1320,6 @@ footer .copyright {
     font-weight: 600;
     color: #333;
 }
-.modal {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: 99998;
-    background-color: rgba(0, 0, 0, .3);
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    overflow-y: auto;
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity .4s, visibility .4s;
-}
-
-.modal__box {
-    position: relative;
-    max-width: 500px;
-    padding: 45px;
-    z-index: 1;
-    margin: 30px 15px;
-    background-color: white;
-    box-shadow: 0px 0px 17px -7px rgba(34, 60, 80, 0.2);
-    transform: scale(0);
-    transition: transform .8s;
-}
-
-.modal__close-btn {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    border: none;
-    background-color: transparent;
-    padding: 5px;
-    cursor: pointer;
-}
-
-.modal__close-btn svg path {
-    transition: fill .4s;
-}
-
-.modal__close-btn:hover svg path {
-    fill: blue;
-}
-
-.modal__close-btn:active svg path {
-    fill: rgb(186, 53, 0);
-}
-
-.modal.open {
-    visibility: visible;
-    opacity: 1;
-}
-
-.modal.open .modal__box {
-    transform: scale(1);
-}
 
 
 /* Media Query (settings for smaller screens)*/
@@ -1592,10 +1586,7 @@ footer .copyright {
     #catalog-products .mob-info {
         display: block;
     }
-
-
 }
-
 @media (max-width: 477px) {
     #header {
         padding: 30px 30px;

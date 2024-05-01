@@ -44,7 +44,7 @@
 
             {%for p in products%}
             <div class="product-icon">
-                <a href="{{p.get_absolute_url}}">
+                <a href="{{p.get_absolute_url}}" class="product-link">
                     <div class="image-field">
                         {% if p.image%}
                         <img src="{{p.image.url}}" alt=""/>
@@ -57,39 +57,17 @@
                         <h5>{{p.name}}</h5>
                         <h4 class="price">{{p.price}}</h4>
                     </div>
-                    <i class="fa-solid fa-cart-plus product-cart open-modal-btn" id="open-modal-btn"></i>
                 </a>
-                     <div class="modal" id="my-modal">
-                <div class="modal__box">
-                    <button class="modal__close-btn" id="close-my-modal-btn">
-                        <svg
-                                width="23"
-                                height="25"
-                                viewBox="0 0 23 25"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                    d="M2.09082 0.03125L22.9999 22.0294L20.909 24.2292L-8.73579e-05 2.23106L2.09082 0.03125Z"
-                                    fill="#333333"
-                            />
-                            <path
-                                    d="M0 22.0295L20.9091 0.0314368L23 2.23125L2.09091 24.2294L0 22.0295Z"
-                                    fill="#333333"
-                            />
-                        </svg>
-                    </button>
-                    <h2>{{p.name}} modal window</h2>
-
-                    <p>
-                        {{p.price}}
-                    </p>
-
-                    <p>
-                        {{p.description}}
-                    </p>
+                <i class="fa-solid fa-cart-plus product-cart openModalBtn" data-product-id="{{ p.id }}"></i>
+                <div class="modal productModal" id="productModal{{p.id}}">
+                    <div class="modal-content">
+                        <span class="close" data-product-id="{{p.id}}">&times;</span>
+                        <!-- Content of the modal for a specific product -->
+                        <h2>{{ p.name }}</h2>
+                        <p>{{ p.description }}</p>
+                        <h1>{{p.price}}</h1>
+                    </div>
                 </div>
-            </div>
             </div>
             {%endfor%}
         </div>
