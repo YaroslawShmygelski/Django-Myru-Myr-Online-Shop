@@ -65,10 +65,10 @@ for (var i = 0; i < modalBtns.length; i++) {
             }
         });
         // added Listener to close modal window if clicked aside
-        modal.addEventListener('click', event => {
-            if (event._isClickWithInModal) return;
-            modal.style.display = "none";
-        });
+        // modal.addEventListener('click', event => {
+        //     if (event._isClickWithInModal) return;
+        //     modal.style.display = "none";
+        // });
     }
 }
 
@@ -81,7 +81,6 @@ for (var j = 0; j < closeBtns.length; j++) {
         var productId = this.getAttribute("data-product-id");
         var modal = document.getElementById("productModal" + productId);
         modal.style.display = "none";
-
     }
 }
 

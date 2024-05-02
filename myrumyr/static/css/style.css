@@ -180,16 +180,17 @@ body {
     transition: 0.35s ease-in-out;
     text-decoration: none;
 }
-#navbar #dropdown-cat a:hover{
+
+#navbar #dropdown-cat a:hover {
     text-decoration: none;
 }
 
 
-#dropdown-cat a{
+#dropdown-cat a {
     text-decoration: none;
 }
 
-#dropdown-cat li a{
+#dropdown-cat li a {
     text-decoration: none;
 }
 
@@ -365,42 +366,78 @@ div.search-box button {
 
 /* Стили для модального окна */
 .modal {
-  display: none; /* По умолчанию скрыто */
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.4); /* Темный фон */
+    display: none; /* По умолчанию скрыто */
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    align-items: center;
+    justify-content: center;
+    transition: opacity .4s, visibility .4s;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.09);
 }
 
-/* Стили для содержимого модального окна */
+/* Modal styloings */
 .modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* Центрируем по вертикали и горизонтали */
-  max-width: 500px;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
+    background-color: #fefefe;
+    margin: 15% auto; /* Center vertical and horizontal */
+    max-width: 500px;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 4px;
+    width: 80%;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.09);
+    transition: transform .8s;
+    filter: blur(70%);
 }
 
-/* Стили для крестика закрытия модального окна */
+.modal-content .modal-lover-info .price {
+    padding: 10px 0px 20px 0px;
+    font-size: 24px;
+    color: #059951;
+}
+
+/* Styling close cross button */
 .close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.modal input {
+    text-align: center !important;
+    display: inline-block !important;
+    padding: 10px 15px !important;
+    box-sizing: border-box !important;
+    font-size: 15px;
+    font-weight: 600;
+    margin: 15px 0;
+    background-color: #059951;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    transition: 0.2s ease;
+    width: 17%;
+    min-width: 120px;
+}
+.modal input:hover {
+    color: #FFFFFF;
+    background-color: #9e9102;
 }
 
 .close:hover,
 .close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
 
+/*----------------------------------------------------------------------*/
 /* Bestsallers section*/
 
 #bestsellers {
@@ -412,87 +449,13 @@ div.search-box button {
     align-items: flex-start;
     justify-content: space-evenly;
     flex-wrap: wrap;
-       text-decoration: none;
-
-}
-#bestsellers .product-container a{
     text-decoration: none;
 
 }
 
-/*General product icon stylings*/
-#bestsellers .product-icon {
-    position: relative;
-    width: 23%;
-    min-width: 250px;
-    padding: 10px 12px;
-    border: 1px solid #cce7d0;
-    cursor: pointer;
-    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.09);
-    margin: 20px 10px;
-    transition: 0.2 ease;
-}
+#bestsellers .product-container a {
+    text-decoration: none;
 
-/* Styling hoverd product icon with more intensive shadow*/
-#bestsellers .product-icon:hover {
-    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.25);
-
-}
-
-/* Styling of broduct image*/
-#bestsellers .product-icon .image-field {
-    width: 100%;
-    height: 220px;
-    padding: auto;
-}
-
-
-#bestsellers .product-icon .image-field img {
-    width: 100%;
-    height: auto;
-    border-radius: 30px;
-    padding: auto;
-    max-height: 27vh;
-}
-
-/* Styling product descriptions*/
-#bestsellers .product-description {
-    text-align: start;
-    padding: 0 10px;
-}
-
-#bestsellers .product-description span {
-    color: #606063;
-    text-align: center;
-    font-size: 14px;
-}
-
-#bestsellers .product-description h5 {
-    padding-top: 7px;
-    color: #222;
-    font-size: 20px;
-
-
-}
-
-#bestsellers .price {
-    color: #059951;
-    font-weight: 700;
-    padding: 7px 0;
-}
-
-#bestsellers .product-icon .product-cart {
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    border-radius: 40px;
-    background-color: #a7d7bf;
-    color: #059951;
-    font-size: 20px;
-    border: 1px solid #c1dbcd;
-    bottom: 20px;
-    right: 10px;
-    position: absolute;
 }
 
 #banner {
@@ -564,7 +527,7 @@ footer .fut-vib-tg {
 
 }
 
-footer .fut-col-2 a{
+footer .fut-col-2 a {
     text-decoration: none;
 }
 
@@ -602,10 +565,9 @@ footer h3 {
     margin-bottom: 10px;
 }
 
-footer a{
+footer a {
     text-decoration: none;
 }
-
 
 
 footer .fut-col-2 h5:hover {
@@ -657,13 +619,10 @@ footer .copyright {
 #single-product .single-product-description {
     width: 50%;
 }
-#single-product .single-product-description input{
+
+#single-product .single-product-description input {
     padding: 20px 20px
 }
-
-
-
-
 
 
 #single-product .category {
@@ -1023,17 +982,17 @@ footer .copyright {
 
 /* Стили для крестика закрытия модального окна */
 .close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .atention-box {
@@ -1112,7 +1071,7 @@ footer .copyright {
 }
 
 /* General product icon stylings */
-#catalog-products .product-icon {
+.product-icon {
     position: relative;
     width: 23%;
     min-width: 250px;
@@ -1124,22 +1083,24 @@ footer .copyright {
     transition: 0.2s ease;
 
 }
-#catalog-products .product-icon a{
+
+.product-icon a {
     text-decoration: none;
 }
+
 /* Styling hovered product icon with more intensive shadow */
-#catalog-products .product-icon:hover {
+.product-icon:hover {
     box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.25);
 }
 
 /* Styling of product image */
-#catalog-products .product-icon .image-field {
+.product-icon .image-field {
     width: 100%;
     height: 220px;
     padding: auto;
 }
 
-#catalog-products .product-icon .image-field img {
+.product-icon .image-field img {
     width: 100%;
     height: auto;
     border-radius: 30px;
@@ -1148,30 +1109,30 @@ footer .copyright {
 }
 
 /* Styling product descriptions */
-#catalog-products .product-description {
+.product-description {
     text-align: start;
     padding: 0 10px;
 }
 
-#catalog-products .product-description span {
+.product-description span {
     color: #606063;
     text-align: center;
     font-size: 14px;
 }
 
-#catalog-products .product-description h5 {
+.product-description h5 {
     padding-top: 7px;
     color: #222;
     font-size: 20px;
 }
 
-#catalog-products .price {
+.price {
     color: #059951;
     font-weight: 700;
     padding: 7px 0;
 }
 
-#catalog-products .product-icon .product-cart {
+.product-icon .product-cart {
     width: 40px;
     height: 40px;
     line-height: 40px;
@@ -1324,6 +1285,11 @@ footer .copyright {
 
 /* Media Query (settings for smaller screens)*/
 @media (max-width: 1200px) {
+
+    .modal {
+        position: page;
+        top: 20%;
+    }
 
     .search-bar {
         min-width: 350px;
@@ -1587,6 +1553,7 @@ footer .copyright {
         display: block;
     }
 }
+
 @media (max-width: 477px) {
     #header {
         padding: 30px 30px;
@@ -1675,5 +1642,4 @@ footer .copyright {
         margin-top: 60px;
         font-weight: 600;
     }
-
 }

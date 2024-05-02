@@ -63,9 +63,17 @@
                     <div class="modal-content">
                         <span class="close" data-product-id="{{p.id}}">&times;</span>
                         <!-- Content of the modal for a specific product -->
-                        <h2>{{ p.name }}</h2>
-                        <p>{{ p.description }}</p>
-                        <h1>{{p.price}}</h1>
+                        <div class="modal-product-name">
+                            <h2>{{ p.name }}</h2>
+                        </div>
+                        <div class="modal-lover-info">
+                            <p class="description">{{ p.description }}</p>
+                            <form action="{%url 'cart:add_to_cart' p.slug%}" method="post">
+                                {{form.as_p}}
+                                {%csrf_token%}
+                                <input type="submit" value="Add to Cart">
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>

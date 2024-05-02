@@ -27,8 +27,9 @@ def get_category_products(request, cat_slug):
 
 def show_catalog(request):
     products = Product.objects.all()
+    cart_form = CartAddForm()
 
-    return render(request, 'shop/catalog.html', {'products': products})
+    return render(request, 'shop/catalog.html', {'products': products, 'form':cart_form})
 
 
 def cart_view(request):
