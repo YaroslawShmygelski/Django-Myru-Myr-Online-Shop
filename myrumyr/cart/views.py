@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
 
 from .cart import Cart
@@ -40,4 +40,8 @@ def cart_view(request):
 
 def test_view(request):
     form=CartAddForm()
-    return render(request, 'cart/Test.html', context={'form':form} )
+    if request.method == 'POST':
+        test={'test1':'test.message'}
+        return JsonResponse(test)
+    else:
+        return render(request, 'cart/Test.html', context={'form': form})
