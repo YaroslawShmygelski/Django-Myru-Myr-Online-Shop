@@ -68,7 +68,7 @@
                         </div>
                         <div class="modal-lover-info">
                             <p class="description">{{ p.description }}</p>
-                            <form action="{%url 'cart:add_to_cart' p.slug%}" method="post">
+                            <form method="post" id="modal-form">
                                 {{form.as_p}}
                                 {%csrf_token%}
                                 <input type="submit" value="Add to Cart">
@@ -96,6 +96,14 @@
     </section>
 </div>
 {%endblock%}
+
+<script type="text/javascript">
+    $(document).on('submit', '#modal-form', function (e){
+        e.preventDefault();
+
+    })
+
+</script>
 
 
 </body>

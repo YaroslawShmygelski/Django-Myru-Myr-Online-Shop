@@ -36,3 +36,8 @@ def remove_from_cart(request, product_slug):
 def cart_view(request):
     cart = Cart(request)
     return render(request, 'cart/cart.html', {'cart': cart})
+
+
+def test_view(request):
+    form=CartAddForm()
+    return render(request, 'cart/Test.html', context={'form':form} )

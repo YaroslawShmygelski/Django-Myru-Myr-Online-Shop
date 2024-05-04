@@ -22,7 +22,8 @@ def show_single_product(request, slug):
 def get_category_products(request, cat_slug):
     category = get_object_or_404(Category, slug=cat_slug)
     products = Product.objects.filter(category=category)
-    return render(request, 'shop/catalog.html', {'products': products})
+    cart_form = CartAddForm()
+    return render(request, 'shop/catalog.html', {'products': products, 'form':cart_form})
 
 
 def show_catalog(request):
