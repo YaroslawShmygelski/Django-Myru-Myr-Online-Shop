@@ -790,6 +790,10 @@ footer .copyright {
     overflow-x: auto;
 }
 
+#goods-in-cart-sum {
+    font-size: 10px;
+}
+
 #cart table {
     width: 100%;
     border-collapse: collapse;

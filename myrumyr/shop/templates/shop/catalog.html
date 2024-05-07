@@ -42,33 +42,34 @@
                 </div>
             </div>
 
-            {%for p in products%}
+            {%for product in products%}
             <div class="product-icon">
                 <a href="{{p.get_absolute_url}}" class="product-link">
                     <div class="image-field">
-                        {% if p.image%}
-                        <img src="{{p.image.url}}" alt=""/>
+                        {% if product.image%}
+                        <img src="{{product.image.url}}" alt=""/>
                         {%else%}
                         <img src="{%static 'images/no-image.png'%}" alt=""/>
                         {%endif%}
                     </div>
                     <div class="product-description">
-                        <span>{{p.description|linebreaks|truncatewords:3}}</span>
-                        <h5>{{p.name}}</h5>
-                        <h4 class="price">{{p.price}}</h4>
+                        <span>{{product.description|linebreaks|truncatewords:3}}</span>
+                        <h5>{{product.name}}</h5>
+                        <h4 class="price">{{product.price}}</h4>
                     </div>
                 </a>
-                <i class="fa-solid fa-cart-plus product-cart openModalBtn" data-product-id="{{ p.id }}"></i>
-                <div class="modal productModal" id="productModal{{p.id}}">
+                <i class="fa-solid fa-cart-plus product-cart openModalBtn" data-product-id="{{ product.id }}"></i>
+                <div class="modal productModal" id="productModal{{product.id}}">
                     <div class="modal-content">
-                        <span class="close" data-product-id="{{p.id}}">&times;</span>
+                        <span class="close" data-product-id="{{product.id}}">&times;</span>
                         <!-- Content of the modal for a specific product -->
                         <div class="modal-product-name">
-                            <h2>{{ p.name }}</h2>
+                            <h2>{{ product.name }}</h2>
                         </div>
                         <div class="modal-lover-info">
-                            <p class="description">{{ p.description }}</p>
-                            <form method="post" id="modal-form">
+                            <p class="description">{{ product.description }}</p>
+                            <form method="post" id="modal-form{{product.id}}" action="{%url 'cart:add_to_cart' product.slug%}"
+                                  form-data-product-id="{{product.id}}">
                                 {{form.as_p}}
                                 {%csrf_token%}
                                 <input type="submit" value="Add to Cart">
