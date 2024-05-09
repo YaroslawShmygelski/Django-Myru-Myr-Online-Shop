@@ -26,6 +26,18 @@ def add_to_cart(request, product_slug):
     return redirect('cart:cart_view')
 
 
+def ajax_add_to_cart(request):
+    product_id = int(request.POST.get('product_id'))
+    quantity = int(request.POST.get('quantity'))
+    product = get_object_or_404(Product, id=product_id)
+    cart = Cart(request)
+    cart.add(product=product,
+             quantity=quantity)
+
+    data={'message':'succes'}
+    return JsonResponse(data)
+
+
 def remove_from_cart(request, product_slug):
     product = get_object_or_404(Product, slug=product_slug)
     cart = Cart(request)
@@ -39,9 +51,9 @@ def cart_view(request):
 
 
 def test_view(request):
-    form=CartAddForm()
+    form = CartAddForm()
     if request.method == 'POST':
-        test={'test1':'test.message'}
+        test = {'test1': 'test.message'}
         return JsonResponse(test)
     else:
         return render(request, 'cart/Test.html', context={'form': form})

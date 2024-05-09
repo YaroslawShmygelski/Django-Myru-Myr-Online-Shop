@@ -44,7 +44,7 @@
 
             {%for product in products%}
             <div class="product-icon">
-                <a href="{{p.get_absolute_url}}" class="product-link">
+                <a href="{{product.get_absolute_url}}" class="product-link">
                     <div class="image-field">
                         {% if product.image%}
                         <img src="{{product.image.url}}" alt=""/>
@@ -68,8 +68,8 @@
                         </div>
                         <div class="modal-lover-info">
                             <p class="description">{{ product.description }}</p>
-                            <form method="post" id="modal-form{{product.id}}" action="{%url 'cart:add_to_cart' product.slug%}"
-                                  form-data-product-id="{{product.id}}">
+                            <form method="post" class="modal-form" data-form-product-id="{{product.id}}"
+                                  action="{%url 'cart:ajax_add_to_cart'%}">
                                 {{form.as_p}}
                                 {%csrf_token%}
                                 <input type="submit" value="Add to Cart">
@@ -99,7 +99,7 @@
 {%endblock%}
 
 <script type="text/javascript">
-    $(document).on('submit', '#modal-form', function (e){
+    $(document).on('submit', '#modal-form', function (e) {
         e.preventDefault();
 
     })
