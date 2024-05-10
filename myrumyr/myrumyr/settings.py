@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'orders.apps.OrdersConfig',
     'cart.apps.CartConfig',
     'shop.apps.ShopConfig',
+    "phonenumber_field",
     'debug_toolbar',
     'django_extensions',
     'django.contrib.admin',
