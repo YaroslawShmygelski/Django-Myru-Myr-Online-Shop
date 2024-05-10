@@ -1,6 +1,6 @@
 const csrf = document.getElementsByName('csrfmiddlwaretoken');
 const form = document.getElementById('form');
-
+var cartCount=0;
 $(document).ready(function () {
     $('.modal-form').submit(function (e) {
         e.preventDefault();
@@ -9,7 +9,6 @@ $(document).ready(function () {
         var product_id = $(this).data("form-product-id");
         //Parsing quantity of cart elements
         var goods_in_cart =$('#goods-in-cart-sum');
-        var cartCount=0;
 
         var formData = {};
         // Collecting values for every element
