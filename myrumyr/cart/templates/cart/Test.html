@@ -1,0 +1,51 @@
+{%extends 'base.html'%}
+{%load static%}
+
+{%block content%}
+<script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous">
+
+</script>
+<section class="section-p1">
+    <h1>aaaa</h1>
+</section>
+
+<form id="form" method="POST">
+    {%csrf_token%}
+    {{form.as_p}}
+    <button type="submit">Sumbit</button>
+</form>
+
+<script type="text/javascript">
+    const csrf = document.getElementsByName('csrfmiddlwaretoken');
+    const form = document.getElementById('form');
+
+    $(document).ready(function () {
+        $('#form').submit(function (e) {
+            e.preventDefault();
+            var formData = {};
+            // Собираем значения каждого поля формы
+            $(this).find('input, textarea, select').each(function () {
+                formData[$(this).attr('name')] = $(this).val();
+            });
+            var quant=$('#id-quantity');
+            console.log(quant)
+            $.ajax({
+                type: 'POST',
+                url: '{% url "cart:test" %}',
+                data: {
+                    form_data: formData,
+                    csrfmiddlewaretoken: $("[name=csrfmiddlewaretoken]").val(),
+                },
+                success: function (data) {
+                    console.log(formData);
+                    console.log(data.test1)
+                }
+            });
+        });
+    });
+
+
+</script>
+{%endblock%}

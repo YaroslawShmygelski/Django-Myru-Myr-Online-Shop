@@ -1,6 +1,7 @@
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
 
+from orders.forms import OrderForm
 from .cart import Cart
 from .forms import CartAddForm
 from shop.models import Product
@@ -34,7 +35,7 @@ def ajax_add_to_cart(request):
     cart.add(product=product,
              quantity=quantity)
 
-    data={'message':'succes'}
+    data = {'message': 'succes'}
     return JsonResponse(data)
 
 
@@ -47,7 +48,18 @@ def remove_from_cart(request, product_slug):
 
 def cart_view(request):
     cart = Cart(request)
-    return render(request, 'cart/cart.html', {'cart': cart})
+    if request.method == "POST":
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+            cart.clear_cart()
+
+        return render(request, 'cart/cart.html', {'cart': cart})
+
+    else:
+        form = OrderForm()
+        return render(request, 'cart/cart.html', {'cart': cart, 'form': form})
 
 
 def test_view(request):
