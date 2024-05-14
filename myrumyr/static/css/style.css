@@ -425,6 +425,7 @@ div.search-box button {
     width: 17%;
     min-width: 120px;
 }
+
 .modal input:hover {
     color: #FFFFFF;
     background-color: #9e9102;
@@ -920,8 +921,28 @@ footer .copyright {
     border: 1px solid #ac2727;
     border-radius: 4px;
     padding: 0 15px;
-
 }
+
+.order-form .order-button {
+    display: block;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 15px auto;
+    padding: 10px 25px;
+    background-color: #FFFFFF;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+.order-form .order-button:hover {
+    background-color: #9e9102;
+    color: #FFFFFF;
+}
+
 
 .order-form .input-box.more textarea {
     margin-top: 10px;

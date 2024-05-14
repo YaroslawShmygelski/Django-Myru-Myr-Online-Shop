@@ -31,7 +31,7 @@
         </tr>
         </thead>
         <tbody>
-          {% for item in cart %}
+        {% for item in cart %}
         <tr>
             {% with product=item.product %}
             <td>{{product.name}}</td>
@@ -49,7 +49,7 @@
             {%endwith%}
 
         </tr>
-             {%endfor%}
+        {%endfor%}
         </tbody>
     </table>
 </section>
@@ -57,34 +57,44 @@
 <section id="cart-add" class="section-p1">
     <div class="order-form">
         <header>Input your data</header>
-        <form action="#" class="form"></form>
-        <div class="input-box active">
-            <label>Name</label>
-            <input type="text" placeholder="Enter name"/>
-        </div>
-        <div class="input-box">
-            <label>Surname</label>
-            <input class="valid" type="text" placeholder="Enter surname"/>
-        </div>
-        <div class="input-box-phone">
-            <label>Phone</label>
-            <input class="valid" type="text" placeholder="Phone number"/>
-        </div>
-        <div class="select-box">
-            <label> Country</label>
-            <select>
-                <option hidden>Oblast</option>
-                <option>Vinntysia</option>
-                <option>Odesa</option>
-                <option>Donbas</option>
-                <option>Volyn</option>
-            </select>
-        </div>
+        <form method="post" class="form">
+        {{form.as_p}}
+        <p><input type="submit" value="Place order"></p>
+        {%csrf_token%}
+        </form>
+        <!--        <div class="input-box active">-->
+        <!--            <label for="{{form.first_name.id_for_.label}}"> {{form.first_name.label}}</label>-->
+        <!--            {{form.first_name}}-->
+        <!--        </div>-->
+        <!--        <div class="input-box">-->
+        <!--            <label for="{{form.last_name.id_for_.label}}"> {{form.last_name.label}}</label>-->
+        <!--            <input type="text" placeholder="Enter surname"/>-->
+        <!--        </div>-->
+        <!--        <div class="input-box">-->
+        <!--            <label for="{{form.email.id_for_.label}}"> {{form.email.label}}</label>-->
+        <!--            <input  type="text" placeholder="Enter email"/>-->
+        <!--        </div>-->
+        <!--        <div class="input-box">-->
+        <!--            <label for="{{form.phone.id_for_.label}}"> {{form.phone.label}}</label>-->
+        <!--            <input  type="text" placeholder="Phone number"/>-->
+        <!--        </div>-->
+        <!--        <div class="select-box">-->
+        <!--            <label> Country</label>-->
+        <!--            <select>-->
+        <!--                <option hidden>Oblast</option>-->
+        <!--                <option>Vinntysia</option>-->
+        <!--                <option>Odesa</option>-->
+        <!--                <option>Donbas</option>-->
+        <!--                <option>Volyn</option>-->
+        <!--            </select>-->
+        <!--        </div>-->
 
-        <div class="input-box more">
-            <label>Comments to order</label>
-            <textarea> </textarea>
-        </div>
+        <!--        <div class="input-box more">-->
+        <!--            <label>Comments to order</label>-->
+        <!--            <textarea> </textarea>-->
+        <!--        </div>-->
+
+        <!--        <input class="order-button" type="submit" value="Order"></input>-->
     </div>
     <div class="atention-box">
         <h3>Atention!</h3>

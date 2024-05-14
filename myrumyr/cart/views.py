@@ -2,6 +2,7 @@ from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
 
 from orders.forms import OrderForm
+from orders.models import OrderInstance
 from .cart import Cart
 from .forms import CartAddForm
 from shop.models import Product
@@ -48,10 +49,17 @@ def remove_from_cart(request, product_slug):
 
 def cart_view(request):
     cart = Cart(request)
+
+    # Processing order validation
     if request.method == "POST":
         form = OrderForm(request.POST)
         if form.is_valid():
-            form.save()
+            order = form.save()
+            for item in cart:
+                OrderInstance.objects.create(order=order,
+                                             product=item['product'],
+                                             price=item['price'],
+                                             quantity=item['quantity'])
 
             cart.clear_cart()
 

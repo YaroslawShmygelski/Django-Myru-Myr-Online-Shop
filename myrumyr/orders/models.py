@@ -6,9 +6,10 @@ from shop.models import Product
 class Order(models.Model):
     first_name = models.CharField(max_length=50, blank=False)
     last_name = models.CharField(max_length=50, blank=False)
-    email = models.EmailField()
-    phone_number = PhoneNumberField(blank=False)
-    city = models.CharField(max_length=50)
+    email = models.EmailField(blank=False)
+    phone_number = PhoneNumberField(blank=True)
+    additional_info = models.TextField(blank=True)
+    city = models.CharField(max_length=50, blank=False)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -33,7 +34,6 @@ class OrderInstance(models.Model):
     quantity = models.IntegerField(default=1)
     price = models.DecimalField(max_digits=10, decimal_places=2)
 
-
     class Meta():
         verbose_name = 'Order Instance'
         verbose_name_plural = 'Order Instances'
@@ -41,6 +41,5 @@ class OrderInstance(models.Model):
     def __str__(self):
         return f'OrderInstance {self.id}'
 
-
-    def  get_cost(self):
-        return self.price*self.quantity
+    def get_cost(self):
+        return self.price * self.quantity
