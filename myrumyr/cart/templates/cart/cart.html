@@ -56,11 +56,15 @@
 
 <section id="cart-add" class="section-p1">
     <div class="order-form">
-        <header>Input your data</header>
+        <header>Input your data
+            {% if request.GET.success_form == 'true' %}
+            <div style="color: #3a9560">Your Order is successfully registered!</div>
+            {% endif %}
+        </header>
         <form method="post" class="form">
-        {{form.as_p}}
-        <p><input type="submit" value="Place order"></p>
-        {%csrf_token%}
+            {%csrf_token%}
+            {{form.as_p}}
+            <p><input type="submit" value="Place order"></p>
         </form>
         <!--        <div class="input-box active">-->
         <!--            <label for="{{form.first_name.id_for_.label}}"> {{form.first_name.label}}</label>-->

@@ -1,5 +1,7 @@
+from django.contrib import messages
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
 
 from orders.forms import OrderForm
 from orders.models import OrderInstance
@@ -60,10 +62,12 @@ def cart_view(request):
                                              product=item['product'],
                                              price=item['price'],
                                              quantity=item['quantity'])
-
             cart.clear_cart()
+            url_with_params = reverse('cart:cart_view') + '?success_form=true'
+            return redirect(url_with_params)
+        else:
+            return render(request, 'cart/cart.html', {'form': form})
 
-        return render(request, 'cart/cart.html', {'cart': cart})
 
     else:
         form = OrderForm()
