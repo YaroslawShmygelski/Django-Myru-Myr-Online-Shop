@@ -145,4 +145,7 @@ CART_SESSION_ID='cart'
 
 CELERY_BROKER_URL = 'redis://127.0.0.1:16379/0'
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
 
