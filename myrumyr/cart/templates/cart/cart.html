@@ -63,8 +63,10 @@
         </header>
         <form method="post" class="form">
             {%csrf_token%}
-            {{form.as_p}}
-            <p><input type="submit" value="Place order"></p>
+            <div class="input-box active">
+                {{form.as_p}}
+            </div>
+            <input type="submit" value="Order" class="order-button">
         </form>
         <!--        <div class="input-box active">-->
         <!--            <label for="{{form.first_name.id_for_.label}}"> {{form.first_name.label}}</label>-->

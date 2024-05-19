@@ -142,3 +142,7 @@ INTERNAL_IPS = [
 ]
 
 CART_SESSION_ID='cart'
+
+CELERY_BROKER_URL = 'redis://127.0.0.1:16379/0'
+
+

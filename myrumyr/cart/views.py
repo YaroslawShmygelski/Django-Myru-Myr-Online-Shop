@@ -9,10 +9,6 @@ from .cart import Cart
 from .forms import CartAddForm
 from shop.models import Product
 
-
-# Create your views here.
-
-
 def index(request):
     return HttpResponse("Hello, world. You're at the")
 

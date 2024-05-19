@@ -6,3 +6,5 @@ django_extensions==3.2.3
 django_debug_toolbar==4.3.0
 django_phonenumber_field==7.3.0
 django_phonenumbers==1.0.1
+celery==5.4.0
+redis==5.0.4

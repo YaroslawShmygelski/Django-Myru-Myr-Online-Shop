@@ -7,3 +7,4 @@ class OrderForm(forms.ModelForm):
         model = Order
         fields = ['first_name', 'last_name', 'email', 'phone_number', 'city']
         labels =['First Name', 'Last Name', 'Email', 'Phone Number', 'City']
+        placeholders =['First Name', 'Last Name', 'Email', 'Phone Number', 'City']
