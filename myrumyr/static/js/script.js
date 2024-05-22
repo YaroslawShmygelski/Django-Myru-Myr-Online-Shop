@@ -19,18 +19,18 @@ if (close) {
     });
 }
 
-// Search bar opener
-if (search_result) {
-    search_result.addEventListener("input", () => {
-        dropdown_menu.style.display = "inline";
-    });
-}
-
-document.addEventListener("click", (event) => {
-    if (!dropdown_menu.contains(event.target) && event.target !== search_result) {
-        dropdown_menu.style.display = "none";
-    }
-});
+// // Search bar opener
+// if (search_result) {
+//     search_result.addEventListener("input", () => {
+//         dropdown_menu.style.display = "inline";
+//     });
+// }
+//
+// document.addEventListener("click", (event) => {
+//     if (!dropdown_menu.contains(event.target) && event.target !== search_result) {
+//         dropdown_menu.style.display = "none";
+//     }
+// });
 
 
 var MainImg = document.getElementById("main-image");

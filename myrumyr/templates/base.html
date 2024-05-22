@@ -20,54 +20,54 @@
     <a href="{%url 'shop:main'%}"> <img src="{%static 'images/logo.png'%}" class="logo" width="50" height="50"/></a>
 
     <p>
-        <ul id="navbar">
-            <li class="nav-elements">
-                <div class="search-box" id="search-box-id">
-                    <div class="search-row">
-                        <input type="text" id="search-bar" placeholder="Search"/>
-                        <button id="search-button">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </button>
-                    </div>
-                    <div class="dropdown-box" id="drpb">
-                        <div class="dropdown-result">Result1</div>
-                        <div class="dropdown-result">Result2</div>
-                        <div class="dropdown-result">Result3</div>
-                        <div class="dropdown-result">Result2</div>
-                        <div class="dropdown-result">Result2</div>
-                        <div class="dropdown-result">Result4</div>
-                        <div class="dropdown-result">Result2</div>
-                        <div class="dropdown-result">Result2</div>
-                        <div class="dropdown-result">Result4</div>
-                    </div>
+    <ul id="navbar">
+        <li class="nav-elements">
+            <div class="search-box" id="search-box-id">
+                <div class="search-row ui-widget">
+                    <input type="text" id="search-bar" placeholder="Search"/>
+                    <button id="search-button">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
                 </div>
-            </li>
-            <li class="nav-elements">
-                <a href="{%url 'shop:main'%}">Main</a>
-            </li>
-            <li class="nav-elements nav-catalog">
-                <a href="{% url 'shop:catalog'%}">Categories <i class="fa-solid fa-chevron-down"></i> </a>
-                <ul id="dropdown-cat">
-                    {%get_categories as categories%}
-                    {%for cat in categories%}
-                    <li><a href="{{cat.get_absolute_url}}"><h5>{{cat}} </h5></a></li>
-                    {%endfor%}
-                </ul>
-            </li>
-            <li class="nav-elements">
-                <a href="../shop/templates/shop/single-product.html">Goods</a>
-            </li>
-            <li class="nav-elements">
-                <a href="{%url 'shop:contact'%}">Contacts </a>
-            </li>
-            <i id="close" class="fa-solid fa-xmark"></i>
-            <li class="nav-elements">
-                <a href="{%url 'cart:cart_view'%}">
-                    <i id="shop-cart" class="fa-solid fa-cart-shopping"></i>
-                    <div id="goods-in-cart-sum">{{cart|length}}</div>
-                </a>
-            </li>
-        </ul>
+                <div class="dropdown-box" id="drpb">
+                    <div class="dropdown-result">Result1</div>
+                    <div class="dropdown-result">Result2</div>
+                    <div class="dropdown-result">Result3</div>
+                    <div class="dropdown-result">Result2</div>
+                    <div class="dropdown-result">Result2</div>
+                    <div class="dropdown-result">Result4</div>
+                    <div class="dropdown-result">Result2</div>
+                    <div class="dropdown-result">Result2</div>
+                    <div class="dropdown-result">Result4</div>
+                </div>
+            </div>
+        </li>
+        <li class="nav-elements">
+            <a href="{%url 'shop:main'%}">Main</a>
+        </li>
+        <li class="nav-elements nav-catalog">
+            <a href="{% url 'shop:catalog'%}">Categories <i class="fa-solid fa-chevron-down"></i> </a>
+            <ul id="dropdown-cat">
+                {%get_categories as categories%}
+                {%for cat in categories%}
+                <li><a href="{{cat.get_absolute_url}}"><h5>{{cat}} </h5></a></li>
+                {%endfor%}
+            </ul>
+        </li>
+        <li class="nav-elements">
+            <a href="../shop/templates/shop/single-product.html">Goods</a>
+        </li>
+        <li class="nav-elements">
+            <a href="{%url 'shop:contact'%}">Contacts </a>
+        </li>
+        <i id="close" class="fa-solid fa-xmark"></i>
+        <li class="nav-elements">
+            <a href="{%url 'cart:cart_view'%}">
+                <i id="shop-cart" class="fa-solid fa-cart-shopping"></i>
+                <div id="goods-in-cart-sum">{{cart|length}}</div>
+            </a>
+        </li>
+    </ul>
     </div>
     <div class="mobile">
         <div class="mobile-logo">
@@ -147,6 +147,8 @@
 </footer>
 <script src="{%static 'js/script.js'%}" charset="utf-8"></script>
 <script src="{%static 'js/jquery_source/jquery-3.7.0.min.js'%}" charset="utf-8"></script>
+<script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 <script src="{%static 'js/jquery-ajax.js'%}" charset="utf-8"></script>
 </body>
 </html>
