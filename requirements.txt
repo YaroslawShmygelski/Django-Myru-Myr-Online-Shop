@@ -8,3 +8,4 @@ django_phonenumber_field==7.3.0
 django_phonenumbers==1.0.1
 celery==5.4.0
 redis==5.0.4
+flower==1.1.0

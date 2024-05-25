@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -143,7 +143,18 @@ INTERNAL_IPS = [
 
 CART_SESSION_ID='cart'
 
-CELERY_BROKER_URL = 'redis://127.0.0.1:16379/0'
+CELERY_BROKER_URL = 'redis://localhost:6379'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/1'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_IGNORE_RESULT = False
+CELERY_TIMEZONE = TIME_ZONE
+CELERY_TRACK_STARTED = True
+CELERYD_LOG_FILE = os.path.join(
+    BASE_DIR, 'celery', 'logs')
+CELERYD_LOG_LEVEL = "INFO"
+
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 

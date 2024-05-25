@@ -1,10 +1,10 @@
-from django.http import HttpResponse, JsonResponse
+from django.http import  JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 
 from orders.forms import OrderForm
 from orders.models import OrderInstance
-from orders.tasks import order_create_send_email
+from orders.tasks import order_create_send_email, order_send_pdf_order, test_task
 from .cart import Cart
 from .forms import CartAddForm
 from shop.models import Product
@@ -12,6 +12,7 @@ from shop.models import Product
 
 
 def add_to_cart(request, product_slug):
+
     if request.method == "POST":
         form = CartAddForm(request.POST)
         cart = Cart(request)
@@ -44,6 +45,7 @@ def remove_from_cart(request, product_slug):
 
 
 def cart_view(request):
+    test_task.delay()
     cart = Cart(request)
 
     # Processing order validation
@@ -58,6 +60,8 @@ def cart_view(request):
                                              quantity=item['quantity'])
             cart.clear_cart()
             order_create_send_email.delay(order.id)
+            order_send_pdf_order.delay(order.id)
+            test_task.delay()
             url_with_params = reverse('cart:cart_view') + '?success_form=true'
             return redirect(url_with_params)
         else:

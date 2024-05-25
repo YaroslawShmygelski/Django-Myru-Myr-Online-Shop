@@ -26,9 +26,6 @@ $(document).ready(function () {
                 csrfmiddlewaretoken: $("[name=csrfmiddlewaretoken]").val(),
             },
             success: function (data) {
-                console.log(formData);
-                console.log(product_id);
-                console.log(goods_in_cart);
                 cartCount += parseInt(formData['quantity']);
                 goods_in_cart.text(cartCount);
             }
@@ -39,7 +36,7 @@ $(document).ready(function () {
     // Website search function
     $(document).ready(function () {
         $("#search-bar").autocomplete({
-            source: 'search-data/',
+            source: '/search-data/',
             open: function () {
                 $(".ui-autocomplete").hide();
             },
