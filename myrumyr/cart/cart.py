@@ -32,14 +32,13 @@ class Cart:
             del self.cart[product_id]
             self.save()
 
-
     def __iter__(self):
         self.product_ids = self.cart.keys()
         products = Product.objects.filter(id__in=self.product_ids)
         cart = self.cart.copy()
         for product in products:
             cart[str(product.id)]['product'] = product
-            cart[str(product.id)]['price']=int(product.price)
+            cart[str(product.id)]['price'] = int(product.price)
 
         for item in cart.values():
             item['total_price'] = item['price'] * item['quantity']
